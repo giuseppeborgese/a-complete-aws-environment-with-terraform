@@ -11,19 +11,22 @@ variable "AmiLinux" {
   }
   description = "I add only 3 regions (Virginia, Oregon, Ireland) to show the map feature but you can add all the regions that you need"
 }
+/*
 variable "aws_access_key" {
-  default = "ccc"
+  default = "xxxxx"
   description = "the user aws access key"
 }
+
+variable "aws_secret_key" {
+  default = "xxxx"
+  description = "the user aws secret key"
+}
+*/
 variable "credentialsfile" {
   default = "/Users/giuseppe/.aws/credentials" #replace your home directory
   description = "where your access and secret_key are stored, you create the file when you run the aws config"
 }
 
-variable "aws_secret_key" {
-  default = "ccc"
-  description = "the user aws secret key"
-}
 variable "vpc-fullcidr" {
     default = "172.28.0.0/16"
   description = "the vpc cdir"
