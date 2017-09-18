@@ -36,6 +36,7 @@ resource "aws_instance" "database" {
   }
   user_data = <<HEREDOC
   #!/bin/bash
+  sleep 180
   yum update -y
   yum install -y mysql55-server
   service mysqld start
