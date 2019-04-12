@@ -12,9 +12,19 @@ resource "aws_vpc_dhcp_options_association" "dns_resolver" {
 }
 
 /* DNS PART ZONE AND RECORDS */
+#resource "aws_route53_zone" "main" {
+#  name = "${var.DnsZoneName}"
+#  vpc_id = "${aws_vpc.terraformmain.id}"
+#  comment = "Managed by terraform"
+#}
+# This throws this error: 
+#   Error: aws_route53_zone.main: "vpc_id": [REMOVED] use 'vpc' configuration block instead
+# so change it accordingly: 
 resource "aws_route53_zone" "main" {
   name = "${var.DnsZoneName}"
-  vpc_id = "${aws_vpc.terraformmain.id}"
+  vpc {
+    vpc_id = "${aws_vpc.terraformmain.id}"
+  }
   comment = "Managed by terraform"
 }
 
